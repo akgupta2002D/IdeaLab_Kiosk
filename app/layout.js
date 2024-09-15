@@ -15,6 +15,7 @@ import { ThemeProvider } from '@mui/material/styles'
 import CssBaseline from '@mui/material/CssBaseline'
 import theme from './theme/theme'
 import Navigation from './components/Navigation'
+import TopBar from './components/TopBar'
 import InactivityHandler from './components/InactivityHandler'
 
 export default function RootLayout ({ children }) {
@@ -28,7 +29,7 @@ export default function RootLayout ({ children }) {
           <InactivityHandler timeout={10000}>
             {' '}
             {/* Redirect to homepage after 10 seconds of inactivity */}
-            <Navigation /> {/* Render the navigation bar */}
+            <TopBar /> {/* Render the navigation bar */}
             {children} {/* Render the page-specific content */}
           </InactivityHandler>
         </ThemeProvider>

@@ -17,8 +17,8 @@ import { Box, Typography, Avatar } from '@mui/material'
 const TopBar = () => {
   // Sample data for the shift workers
   const shiftWorkers = [
-    { name: 'John Doe', image: '/path/to/john-image.jpg' },
-    { name: 'Jane Smith', image: '/path/to/jane-image.jpg' }
+    { name: 'Ankit Gupta', image: '/path/to/john-image.jpg' },
+    { name: 'Steven Hao', image: '/path/to/jane-image.jpg' }
   ]
 
   return (
@@ -26,7 +26,7 @@ const TopBar = () => {
       display='flex'
       justifyContent='space-between'
       p={2}
-      bgcolor='secondary.main'
+      bgcolor='primary.main'
     >
       {/* Left Section */}
       <Box>
@@ -38,7 +38,13 @@ const TopBar = () => {
       </Box>
 
       {/* Right Section */}
-      <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
+      <Box
+        display={'flex'}
+        flexDirection={'column'}
+        alignItems={'center'}
+        bgcolor='warning.main'
+        sx={{ borderRadius: '20px' }}
+      >
         <Typography variant='h6' color='textPrimary' gutterBottom>
           Current Shift
         </Typography>
@@ -54,7 +60,7 @@ const TopBar = () => {
               <Avatar
                 alt={worker.name}
                 src={worker.image}
-                sx={{ width: 56, height: 56 }}
+                sx={{ width: 68, height: 68 }}
               />
               <Typography variant='body2' color='textPrimary' my={2}>
                 {worker.name}

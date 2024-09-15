@@ -1,14 +1,12 @@
 import { Box, Container, Typography, Image } from '@mui/material'
 import TopBar from './components/TopBar'
+import PosterSlider from './components/PosterSlider'
+
 export default function Home () {
   return (
     <Container sx={{ width: '100%' }}>
-      <Box my={2} sx={{ width: '100%' }}>
-        <TopBar />
-      </Box>
-
-      <Box my={2} sx={{ width: '100%', bgcolor: 'secondary.main' }}>
-        <Typography>Hey</Typography>
+      <Box my={10} sx={{ width: '100%', bgcolor: 'secondary.main' }}>
+        <PosterSlider />
       </Box>
       <Box></Box>
     </Container>
