@@ -87,17 +87,25 @@ const PosterSlider = () => {
         color='black'
         borderRadius={2}
         width={'100%'}
+        my={2}
       >
-        <Typography variant='h4' component='h2' gutterBottom>
+        <Typography
+          variant='h4'
+          component='h2'
+          gutterBottom
+          sx={{ fontWeight: '600' }}
+        >
           {currentEvent.name} {/* Event name */}
         </Typography>
-        <Typography variant='h6'>{currentEvent.description}</Typography>
+        <Typography variant='h6' sx={{ fontSize: '1rem' }}>
+          {currentEvent.description}
+        </Typography>
 
         <Box display={'flex'} flexDirection={'column'} width={'100%'}>
-          <Typography variant='h6' gutterBottom>
+          <Typography variant='h6' gutterBottom sx={{ fontSize: '1rem' }}>
             Location: {currentEvent.location} {/* Event location */}
           </Typography>
-          <Typography variant='subtitle1'>
+          <Typography variant='subtitle1' sx={{ fontSize: '1rem' }}>
             {currentEvent.date} {/* Event date */}
           </Typography>
         </Box>

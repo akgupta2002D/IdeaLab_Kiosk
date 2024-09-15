@@ -1,6 +1,7 @@
 import { Box, Container, Typography, Image } from '@mui/material'
 import TopBar from './components/TopBar'
 import PosterSlider from './components/PosterSlider'
+import KioskButtons from './components/KioskButtons'
 
 export default function Home () {
   return (
@@ -8,7 +9,10 @@ export default function Home () {
       <Box my={10} sx={{ width: '100%', bgcolor: 'secondary.main' }}>
         <PosterSlider />
       </Box>
-      <Box></Box>
+
+      <Box>
+        <KioskButtons />
+      </Box>
     </Container>
   )
 }
