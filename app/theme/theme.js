@@ -1,4 +1,17 @@
-// src/theme/theme.js
+/**
+ * theme.js
+ *
+ * Author: Ankit Gupta
+ * Company: Kioskx
+ *
+ * Description:
+ * This file defines the custom Material UI theme for the Kioskx Idea Lab Kiosk App.
+
+ * Usage:
+ * Import this theme into the application's root layout and apply it using Material UI's
+ * ThemeProvider to ensure a cohesive look and feel.
+ */
+
 import { createTheme } from '@mui/material/styles'
 
 const theme = createTheme({
