@@ -57,7 +57,7 @@ const KioskButtons = () => {
           borderRadius: '50%'
         }}
       >
-        AI CHAT BOT
+        Ask Our
       </Button>
 
       {/* Guides Button */}

@@ -13,7 +13,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Box, Typography } from '@mui/material'
+import { Avatar, Box, Typography } from '@mui/material'
 
 const PosterSlider = () => {
   // Sample data for events
@@ -21,6 +21,7 @@ const PosterSlider = () => {
     {
       name: 'Tech Meetup 2024',
       location: 'Idea Lab Auditorium',
+      location_img: '/Idealab.jpg',
       date: 'Oct 15, 2024',
       image: '/Poster.webp', // Replace with valid image path or empty string
       description: 'This will be a fun one!'
@@ -29,7 +30,8 @@ const PosterSlider = () => {
       name: 'Creative Workshop',
       location: 'Room 204',
       date: 'Oct 20, 2024',
-      image: '' // No image available
+      image: '', // No image available
+      location_img: '/Idealab.jpg'
     }
     // Add more events as needed
   ]
@@ -63,6 +65,9 @@ const PosterSlider = () => {
       height='50vh' // Occupy 50% of the viewport height
       overflow='hidden'
       bgcolor='background.default'
+      px={7}
+      py={3}
+      boxShadow={2}
     >
       {/* Poster Image */}
       <Box
@@ -79,7 +84,6 @@ const PosterSlider = () => {
 
       {/* Event Details */}
       <Box
-        // Semi-transparent background for text readability
         display={'flex'}
         flexDirection={'column'}
         alignItems={'center'}
@@ -97,17 +101,100 @@ const PosterSlider = () => {
         >
           {currentEvent.name} {/* Event name */}
         </Typography>
-        <Typography variant='h6' sx={{ fontSize: '1rem' }}>
-          {currentEvent.description}
-        </Typography>
 
-        <Box display={'flex'} flexDirection={'column'} width={'100%'}>
-          <Typography variant='h6' gutterBottom sx={{ fontSize: '1rem' }}>
-            Location: {currentEvent.location} {/* Event location */}
-          </Typography>
-          <Typography variant='subtitle1' sx={{ fontSize: '1rem' }}>
-            {currentEvent.date} {/* Event date */}
-          </Typography>
+        {/* Soft UI Background Container */}
+        <Box
+          display={'flex'}
+          width={'100%'}
+          bgcolor='background.default' // Soft background color
+          // borderRadius={3}
+          boxShadow={1}
+          p={2} // Padding inside the container
+          gap={2}
+        >
+          <Box
+            display={'flex'}
+            flexDirection={'column'}
+            width={'70%'}
+            bgcolor={'#f0f8ff'} // Soft light blue background
+            borderRadius={2} // Rounded corners
+            p={2} // Padding for inner content
+          >
+            {/* Event Info */}
+            <Box
+              display='flex'
+              flexDirection={'column'}
+              alignItems='flex-start'
+            >
+              <Typography
+                variant='h6'
+                sx={{ fontSize: '0.9rem', fontWeight: '600', color: '#333' }}
+              >
+                📋 Event Info
+              </Typography>
+              <Typography
+                variant='body1'
+                sx={{ fontSize: '0.9rem', ml: '0.2rem', color: '#555' }}
+              >
+                {currentEvent.description ||
+                  'No description! But it will be fun!'}
+              </Typography>
+            </Box>
+
+            {/* Event Date */}
+            <Box
+              display='flex'
+              flexDirection={'column'}
+              alignItems='flex-start'
+              marginTop={'auto'}
+            >
+              <Typography
+                variant='h6'
+                sx={{ fontSize: '0.9rem', fontWeight: '600', color: '#333' }}
+              >
+                📅 Date
+              </Typography>
+              <Typography
+                variant='body1'
+                sx={{ fontSize: '0.9rem', ml: '0.2rem', color: '#555' }}
+              >
+                {currentEvent.date}
+              </Typography>
+            </Box>
+          </Box>
+
+          <Box
+            display={'flex'}
+            flexDirection={'column'}
+            width={'30%'}
+            marginLeft={'auto'}
+            alignItems={'center'}
+            gap={1}
+          >
+            <Avatar
+              src='CIS_Location.jpeg'
+              variant='square'
+              sx={{
+                border: '1px solid none', // Lighter border color
+                width: '90%',
+                height: '80%',
+                borderRadius: 3, // Rounded corners for soft UI
+                boxShadow: 3 // Soft shadow for a raised effect
+              }}
+            />
+
+            <Typography
+              gutterBottom
+              sx={{
+                fontSize: '0.7rem',
+                textAlign: 'center',
+                display: 'flex',
+                alignItems: 'center'
+              }}
+            >
+              Location: {currentEvent.location} {/* Event location */}
+            </Typography>
+          </Box>
         </Box>
       </Box>
     </Box>

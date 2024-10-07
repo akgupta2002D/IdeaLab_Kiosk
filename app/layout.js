@@ -26,7 +26,7 @@ export default function RootLayout ({ children }) {
           {' '}
           {/* Apply the custom theme globally */}
           <CssBaseline /> {/* Normalize styles across browsers */}
-          <InactivityHandler timeout={10000}>
+          <InactivityHandler timeout={100000}>
             {' '}
             {/* Redirect to homepage after 10 seconds of inactivity */}
             <TopBar /> {/* Render the navigation bar */}

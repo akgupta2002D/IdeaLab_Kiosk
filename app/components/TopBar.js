@@ -31,18 +31,12 @@ const TopBar = () => {
     >
       {/* Left Section */}
       <Box display='flex' alignItems='flex-start'>
-        <Box display='flex' alignItems='center'>
-          <Avatar
-            alt='App Logo'
-            src='/path/to/logo.png' // Replace with the path to your logo image
-            sx={{ width: 50, height: 50, marginRight: 2 }}
-          />
-        </Box>
+        <Box display='flex' alignItems='center'></Box>
         <Box display={'flex'} flexDirection={'column'}>
-          <Typography variant='h5' color='textPrimary'>
+          <Typography variant='h4' color='white'>
             Idea Lab Kiosk
           </Typography>
-          <Typography variant='body2' color='textSecondary'>
+          <Typography variant='body2' color='warning'>
             Empowering Creativity and Innovation
           </Typography>
         </Box>

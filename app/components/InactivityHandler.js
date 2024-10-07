@@ -4,7 +4,7 @@
 import { useEffect, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 
-const InactivityHandler = ({ children, timeout = 10000 }) => {
+const InactivityHandler = ({ children, timeout = 50000 }) => {
   const router = useRouter()
   const timerId = useRef(null)
 
