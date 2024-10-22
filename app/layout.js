@@ -16,7 +16,6 @@ import CssBaseline from '@mui/material/CssBaseline'
 import theme from './theme/theme'
 import Navigation from './components/Navigation'
 import TopBar from './components/TopBar'
-import InactivityHandler from './components/InactivityHandler'
 
 export default function RootLayout ({ children }) {
   return (
@@ -25,13 +24,10 @@ export default function RootLayout ({ children }) {
         <ThemeProvider theme={theme}>
           {' '}
           {/* Apply the custom theme globally */}
-          <CssBaseline /> {/* Normalize styles across browsers */}
-          <InactivityHandler timeout={100000}>
-            {' '}
-            {/* Redirect to homepage after 10 seconds of inactivity */}
-            <TopBar /> {/* Render the navigation bar */}
-            {children} {/* Render the page-specific content */}
-          </InactivityHandler>
+          <CssBaseline /> {/* Normalize styles across browsers */}{' '}
+          {/* Redirect to homepage after 10 seconds of inactivity */}
+          <TopBar /> {/* Render the navigation bar */}
+          {children} {/* Render the page-specific content */}
         </ThemeProvider>
       </body>
     </html>
