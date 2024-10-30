@@ -57,13 +57,13 @@ const KioskButtons = () => {
           borderRadius: '50%'
         }}
       >
-        Ask Our
+        Ask Our AI
       </Button>
 
       {/* Guides Button */}
       <Button
         variant='contained'
-        color='secondary'
+        color='primary'
         sx={{
           width: '20vw',
           height: '80px',

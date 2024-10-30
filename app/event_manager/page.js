@@ -1,9 +1,10 @@
-import { Box, Container, Typography, Image } from '@mui/material'
-import TopBar from './components/TopBar'
-import PosterSlider from './components/PosterSlider'
-import KioskButtons from './components/KioskButtons'
-import './globals.css'
-export default function Home () {
+// app/event-manager/page.js
+import React from 'react'
+import PosterSlider from '../components/PosterSlider' // Update the path as needed
+import EventForm from '../posters_display_system/EventForm'
+
+const EventManagerPage = () => {
+  //   const { events, addEvent, updateEvent, deleteEvent } = useEventPosters()
   const events = [
     {
       name: 'Tech Meetup 2024',
@@ -22,16 +23,14 @@ export default function Home () {
     }
     // Add more events as needed
   ]
-
   return (
-    <Box sx={{ width: '100%' }}>
-      <TopBar />
-      <Box my={8} mx={4} sx={{ bgcolor: 'secondary.main' }}>
-        <PosterSlider events={events} />
-      </Box>
-      <Box>
-        <KioskButtons />
-      </Box>
-    </Box>
+    <div>
+      <h1>Event Manager</h1>
+      <EventForm />
+
+      <PosterSlider events={events} />
+    </div>
   )
 }
+
+export default EventManagerPage

@@ -15,26 +15,8 @@
 import { useState, useEffect } from 'react'
 import { Avatar, Box, Typography } from '@mui/material'
 
-const PosterSlider = () => {
+const PosterSlider = ({ events }) => {
   // Sample data for events
-  const events = [
-    {
-      name: 'Tech Meetup 2024',
-      location: 'Idea Lab Auditorium',
-      location_img: '/Idealab.jpg',
-      date: 'Oct 15, 2024',
-      image: '/Poster.webp', // Replace with valid image path or empty string
-      description: 'This will be a fun one!'
-    },
-    {
-      name: 'Creative Workshop',
-      location: 'Room 204',
-      date: 'Oct 20, 2024',
-      image: '', // No image available
-      location_img: '/Idealab.jpg'
-    }
-    // Add more events as needed
-  ]
 
   // Default image to be used if an event image is not available
   const defaultImage = '/default.webp' // Replace with the path to your default image

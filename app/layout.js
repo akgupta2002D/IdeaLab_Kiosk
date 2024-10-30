@@ -12,23 +12,13 @@
 'use client'
 
 import { ThemeProvider } from '@mui/material/styles'
-import CssBaseline from '@mui/material/CssBaseline'
 import theme from './theme/theme'
-import Navigation from './components/Navigation'
-import TopBar from './components/TopBar'
 
 export default function RootLayout ({ children }) {
   return (
     <html lang='en'>
       <body>
-        <ThemeProvider theme={theme}>
-          {' '}
-          {/* Apply the custom theme globally */}
-          <CssBaseline /> {/* Normalize styles across browsers */}{' '}
-          {/* Redirect to homepage after 10 seconds of inactivity */}
-          <TopBar /> {/* Render the navigation bar */}
-          {children} {/* Render the page-specific content */}
-        </ThemeProvider>
+        <ThemeProvider theme={theme}>{children}</ThemeProvider>
       </body>
     </html>
   )

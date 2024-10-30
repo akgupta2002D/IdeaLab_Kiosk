@@ -13,12 +13,14 @@
 'use client'
 
 import { Box, Typography, Avatar } from '@mui/material'
+import ActiveStaffDisplay from '../staff_display_components/ActiveStaffDisplay'
 
 const TopBar = () => {
   // Sample data for the shift workers
   const shiftWorkers = [
     { name: 'Ankit Gupta', image: '/path/to/john-image.jpg' },
-    { name: 'Steven Hao', image: '/path/to/jane-image.jpg' }
+    { name: 'Steven Hao', image: '/path/to/jane-image.jpg' },
+    { name: 'Ahadu Kebede', image: '/path/to/' }
   ]
 
   return (
@@ -28,52 +30,23 @@ const TopBar = () => {
       alignItems='center'
       p={2}
       bgcolor='primary.main'
+      width={'100%'}
+      height={'14vh'}
     >
       {/* Left Section */}
       <Box display='flex' alignItems='flex-start'>
-        <Box display='flex' alignItems='center'></Box>
         <Box display={'flex'} flexDirection={'column'}>
-          <Typography variant='h4' color='white'>
+          <Typography variant='h3' color='white'>
             Idea Lab Kiosk
           </Typography>
-          <Typography variant='body2' color='warning'>
+          <Typography variant='body1' color='warning'>
             Empowering Creativity and Innovation
           </Typography>
         </Box>
       </Box>
 
+      <ActiveStaffDisplay shiftWorkers={shiftWorkers} />
       {/* Right Section */}
-      <Box
-        display={'flex'}
-        flexDirection={'column'}
-        alignItems={'center'}
-        bgcolor='warning.main'
-        sx={{ borderRadius: '20px', p: 1 }}
-      >
-        <Typography variant='h6' color='textPrimary' gutterBottom>
-          Current Shift
-        </Typography>
-        <Box display='flex' justifyContent='center'>
-          {shiftWorkers.map((worker, index) => (
-            <Box
-              key={index}
-              mx={2}
-              display={'flex'}
-              flexDirection={'column'}
-              alignItems={'center'}
-            >
-              <Avatar
-                alt={worker.name}
-                src={worker.image}
-                sx={{ width: 68, height: 68 }}
-              />
-              <Typography variant='body2' color='textPrimary' mt={1}>
-                {worker.name}
-              </Typography>
-            </Box>
-          ))}
-        </Box>
-      </Box>
     </Box>
   )
 }
