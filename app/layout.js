@@ -10,7 +10,7 @@
  */
 
 'use client'
-
+import './globals.css'
 import { ThemeProvider } from '@mui/material/styles'
 import theme from './theme/theme'
 

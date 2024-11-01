@@ -12,7 +12,7 @@
 
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Avatar, Box, Typography } from '@mui/material'
 
 const PosterSlider = ({ events }) => {
@@ -38,13 +38,20 @@ const PosterSlider = ({ events }) => {
   // Get the current event to display
   const currentEvent = events[currentEventIndex]
 
+  // We want a glow feature behind the feature
+  // Req: The image
+  // Process: The pixels of the image is calculated to find the max repeating color
+  // Result: Use the maxPixel color to lay the base of the glow color behind the poster
+
+  // We need a useState to manage the dominant color:
+
   return (
     <Box
       display='flex'
       flexDirection='column'
       alignItems='center'
       justifyContent='center'
-      height='50vh' // Occupy 50% of the viewport height
+      height='60vh' // Occupy 50% of the viewport height
       overflow='hidden'
       bgcolor='background.default'
       px={7}
@@ -53,14 +60,16 @@ const PosterSlider = ({ events }) => {
     >
       {/* Poster Image */}
       <Box
-        width='100%'
+        width='75%'
         height='100%'
+        my={4}
         style={{
-          transition: 'opacity 1s ease-in-out', // Smooth fade-in/out effect
+          transition: 'opacity 1s ease-in-out',
           opacity: 1,
-          backgroundImage: `url(${currentEvent.image || defaultImage})`, // Use event image or fallback to default image
+          backgroundImage: `url(${currentEvent.image || defaultImage})`,
           backgroundSize: 'cover',
-          backgroundPosition: 'center'
+          backgroundPosition: 'center',
+          boxShadow: '0 0 15px 10px yellow' // Glow effect based on dominant color
         }}
       />
 
@@ -80,6 +89,7 @@ const PosterSlider = ({ events }) => {
           component='h2'
           gutterBottom
           sx={{ fontWeight: '600' }}
+          my={2}
         >
           {currentEvent.name} {/* Event name */}
         </Typography>
@@ -152,14 +162,17 @@ const PosterSlider = ({ events }) => {
             marginLeft={'auto'}
             alignItems={'center'}
             gap={1}
+            px={2}
+            py={2}
+            bgcolor={'#f0f8ff'}
           >
             <Avatar
               src='CIS_Location.jpeg'
               variant='square'
               sx={{
                 border: '1px solid none', // Lighter border color
-                width: '90%',
-                height: '80%',
+                width: '100%',
+                height: '90%',
                 borderRadius: 3, // Rounded corners for soft UI
                 boxShadow: 3 // Soft shadow for a raised effect
               }}

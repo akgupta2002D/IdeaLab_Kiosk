@@ -2,7 +2,7 @@ import { Box, Container, Typography, Image } from '@mui/material'
 import TopBar from './components/TopBar'
 import PosterSlider from './components/PosterSlider'
 import KioskButtons from './components/KioskButtons'
-import './globals.css'
+
 export default function Home () {
   const events = [
     {
@@ -26,7 +26,7 @@ export default function Home () {
   return (
     <Box sx={{ width: '100%' }}>
       <TopBar />
-      <Box my={8} mx={4} sx={{ bgcolor: 'secondary.main' }}>
+      <Box my={12} mx={8} sx={{ bgcolor: 'secondary.main' }}>
         <PosterSlider events={events} />
       </Box>
       <Box>

@@ -21,7 +21,7 @@ const KioskButtons = () => {
       justifyContent='space-around'
       alignItems='center'
       width='100%' // Full width to distribute buttons evenly
-      height='20vh' // Occupy 20% of the viewport height
+      height='12vh' // Occupy 20% of the viewport height
       p={2}
       bgcolor='background.default'
     >
