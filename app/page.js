@@ -1,9 +1,24 @@
-import { Box, Container, Typography, Image } from '@mui/material'
-import TopBar from './components/TopBar'
-import PosterSlider from './components/PosterSlider'
-import KioskButtons from './components/KioskButtons'
+'use client'
 
+import React, { useState, useEffect } from 'react'
+import { Box, Container, Typography, Image } from '@mui/material'
+import TopBar from './homepage_components/TopBar'
+import PosterSlider from './homepage_components/PosterSlider'
+import KioskButtons from './homepage_components/KioskButtons'
+import IdeaLabSchedule from './homepage_components/IdeaLabSchedule'
 export default function Home () {
+  const [showIdeaLabHours, setShowIdeaLabHours] = useState(false)
+
+  useEffect(() => {
+    // Set up a timer to switch components every 60 seconds
+    const interval = setInterval(() => {
+      setShowIdeaLabHours(prev => !prev)
+    }, 30000) // 60000 milliseconds = 1 minute
+
+    // Clear the interval on component unmount to prevent memory leaks
+    return () => clearInterval(interval)
+  }, [])
+
   const events = [
     {
       name: 'Tech Meetup 2024',
@@ -27,7 +42,11 @@ export default function Home () {
     <Box sx={{ width: '100%' }}>
       <TopBar />
       <Box my={12} mx={8} sx={{ bgcolor: 'secondary.main' }}>
-        <PosterSlider events={events} />
+        {showIdeaLabHours ? (
+          <IdeaLabSchedule />
+        ) : (
+          <PosterSlider events={events} />
+        )}
       </Box>
       <Box>
         <KioskButtons />
