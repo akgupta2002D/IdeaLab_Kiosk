@@ -1,18 +1,27 @@
+// "use client"; // Uncomment if client-side interactivity is required
 import React from 'react';
 import StaffCard from './StaffCard';
 import styles from './StaffDashboard.module.css';
 
 const StaffDashboard = ({ staffList }) => {
-  if (!staffList || staffList.length === 0) {
-    return <p>No staff available.</p>;
-  }
-
   return (
-    <div className={styles.dashboard}>
-      {staffList.map((staff) => (
-        <StaffCard key={staff.id} staff={staff} />
-      ))}
-    </div>
+    <section className={styles.dashboardSection}>
+      <div className={styles.header}>
+        <h1 className={styles.title}>Our Dedicated Team</h1>
+        <p className={styles.description}>
+          Meet the professionals behind our success. Our team is committed to excellence and innovation, ensuring that every project is handled with utmost care and expertise.
+        </p>
+      </div>
+      {staffList.length === 0 ? (
+        <p className={styles.noStaff}>No staff available at the moment.</p>
+      ) : (
+        <div className={styles.dashboard}>
+          {staffList.map((staff) => (
+            <StaffCard key={staff.id} staff={staff} />
+          ))}
+        </div>
+      )}
+    </section>
   );
 };
 

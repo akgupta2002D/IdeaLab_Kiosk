@@ -1,3 +1,4 @@
+// "use client"; // Uncomment if you add client-side interactivity later
 import React from 'react';
 import styles from './StaffCard.module.css';
 
