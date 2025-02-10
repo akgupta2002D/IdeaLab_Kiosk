@@ -1,23 +1,21 @@
-'use client'
+"use client"
+// Home.js
+import React, { useState, useEffect } from 'react';
+import TopBar from './homepage_components/TopBar';
+import PosterSlider from './homepage_components/PosterSlider';
+import KioskButtons from './homepage_components/KioskButtons';
+import IdeaLabSchedule from './homepage_components/IdeaLabSchedule';
+import styles from './Home.module.css'; // Import the CSS module
 
-import React, { useState, useEffect } from 'react'
-import { Box, Container, Typography, Image } from '@mui/material'
-import TopBar from './homepage_components/TopBar'
-import PosterSlider from './homepage_components/PosterSlider'
-import KioskButtons from './homepage_components/KioskButtons'
-import IdeaLabSchedule from './homepage_components/IdeaLabSchedule'
-export default function Home () {
-  const [showIdeaLabHours, setShowIdeaLabHours] = useState(false)
+export default function Home() {
+  const [showIdeaLabHours, setShowIdeaLabHours] = useState(false);
 
   useEffect(() => {
-    // Set up a timer to switch components every 60 seconds
     const interval = setInterval(() => {
-      setShowIdeaLabHours(prev => !prev)
-    }, 30000) // 60000 milliseconds = 1 minute
-
-    // Clear the interval on component unmount to prevent memory leaks
-    return () => clearInterval(interval)
-  }, [])
+      setShowIdeaLabHours(prev => !prev);
+    }, 30000);
+    return () => clearInterval(interval);
+  }, []);
 
   const events = [
     {
@@ -25,32 +23,37 @@ export default function Home () {
       location: 'Idea Lab Auditorium',
       location_img: '/Idealab.jpg',
       date: 'Oct 15, 2024',
-      image: '/Poster.webp', // Replace with valid image path or empty string
+      image: '/Poster.webp',
       description: 'This will be a fun one!'
     },
     {
       name: 'Creative Workshop',
       location: 'Room 204',
       date: 'Oct 20, 2024',
-      image: '', // No image available
+      image: '',
       location_img: '/Idealab.jpg'
     }
-    // Add more events as needed
-  ]
+  ];
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <div className={styles.homeContainer}>
       <TopBar />
-      <Box my={12} mx={8} sx={{ bgcolor: 'secondary.main' }}>
-        {showIdeaLabHours ? (
-          <IdeaLabSchedule />
-        ) : (
-          <PosterSlider events={events} />
-        )}
-      </Box>
-      <Box>
+      <div className={styles.contentContainer}>
+        <div className={styles.buttonGroup}>
+          <a href="/staff" className={`${styles.button} ${styles.checkIn}`}>
+            Check In
+          </a>
+          <a href="/staff" className={`${styles.button} ${styles.checkOut}`}>
+            Check Out
+          </a>
+        </div>
+        <div className={styles.mainContent}>
+          {showIdeaLabHours ? <IdeaLabSchedule /> : <PosterSlider events={events} />}
+        </div>
+      </div>
+      <div className={styles.kioskButtons}>
         <KioskButtons />
-      </Box>
-    </Box>
-  )
+      </div>
+    </div>
+  );
 }

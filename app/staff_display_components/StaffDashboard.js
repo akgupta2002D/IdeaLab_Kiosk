@@ -7,7 +7,7 @@ const StaffDashboard = ({ staffList }) => {
   return (
     <section className={styles.dashboardSection}>
       <div className={styles.header}>
-        <h1 className={styles.title}>Our Dedicated Team</h1>
+        <h1 className={styles.title}>Please Select your avatar</h1>
         <p className={styles.description}>
           Meet the professionals behind our success. Our team is committed to excellence and innovation, ensuring that every project is handled with utmost care and expertise.
         </p>

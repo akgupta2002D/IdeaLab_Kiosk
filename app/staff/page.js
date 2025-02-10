@@ -20,10 +20,12 @@ const staffList = [
 const StaffPage = () => {
   return (
     <div>
-      <h1>Staff Dashboard</h1>
+      <a href="/" >
+            Check Out
+      </a>
       <StaffDashboard staffList={staffList} />
     </div>
   );
-};
+}
 
 export default StaffPage;
