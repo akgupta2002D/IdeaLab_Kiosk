@@ -3,7 +3,7 @@ import React from 'react';
 import StaffCard from './StaffCard';
 import styles from './StaffDashboard.module.css';
 
-const StaffDashboard = ({ staffList }) => {
+const StaffDashboard = ({ staffList, onStaffClick}) => {
   return (
     <section className={styles.dashboardSection}>
       <div className={styles.header}>
@@ -17,7 +17,7 @@ const StaffDashboard = ({ staffList }) => {
       ) : (
         <div className={styles.dashboard}>
           {staffList.map((staff) => (
-            <StaffCard key={staff.id} staff={staff} />
+            <StaffCard key={staff.id} staff={staff} onClick={onStaffClick} />
           ))}
         </div>
       )}
