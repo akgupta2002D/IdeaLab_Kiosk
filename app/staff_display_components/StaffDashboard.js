@@ -1,15 +1,17 @@
-// "use client"; // Uncomment if client-side interactivity is required
-import React from 'react';
-import StaffCard from './StaffCard';
-import styles from './StaffDashboard.module.css';
+"use client";
+import React from "react";
+import StaffCard from "./StaffCard";
+import styles from "./StaffDashboard.module.css";
 
-const StaffDashboard = ({ staffList, onStaffClick}) => {
+const StaffDashboard = ({ staffList, onStaffClick, selectedStaff }) => {
   return (
     <section className={styles.dashboardSection}>
       <div className={styles.header}>
-        <h1 className={styles.title}>Please Select your avatar</h1>
+        <h1 className={styles.title}>Please Select Your Avatar</h1>
         <p className={styles.description}>
-          Meet the professionals behind our success. Our team is committed to excellence and innovation, ensuring that every project is handled with utmost care and expertise.
+          Meet the professionals behind our success. Our team is committed to
+          excellence and innovation, ensuring that every project is handled with
+          utmost care and expertise.
         </p>
       </div>
       {staffList.length === 0 ? (
@@ -17,7 +19,12 @@ const StaffDashboard = ({ staffList, onStaffClick}) => {
       ) : (
         <div className={styles.dashboard}>
           {staffList.map((staff) => (
-            <StaffCard key={staff.id} staff={staff} onClick={onStaffClick} />
+            <StaffCard
+              key={staff.id}
+              staff={staff}
+              onClick={onStaffClick}
+              isSelected={selectedStaff.has(staff.id)}
+            />
           ))}
         </div>
       )}

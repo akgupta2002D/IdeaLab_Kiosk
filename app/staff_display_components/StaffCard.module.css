@@ -45,3 +45,20 @@
   color: #575F56;
   margin-top: 0.25rem; /* 4px */
 }
+
+.card {
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.selected {
+  border: 2px solid blue;
+  background-color: rgba(0, 0, 255, 0.1);
+}
