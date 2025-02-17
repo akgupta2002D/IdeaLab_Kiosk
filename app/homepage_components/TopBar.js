@@ -1,27 +1,21 @@
-/**
- * TopBar.js
- *
- * Author: Ankit Gupta
- * Company: Kioskx
- *
- * Description:
- * This component renders the top bar for the Kioskx Idea Lab Kiosk App.
- * The left section contains a logo, the app name, and a brief description.
- * The right section displays the "Current Shift" with worker images and names.
- */
+'use client';
 
-'use client'
-
-import { Box, Typography, Avatar } from '@mui/material'
-import ActiveStaffDisplay from '../staff_display_components/ActiveStaffDisplay'
+import { useState, useEffect } from "react";
+import { Box, Typography } from '@mui/material';
+import ActiveStaffDisplay from '../staff_display_components/ActiveStaffDisplay';
 
 const TopBar = () => {
-  // Sample data for the shift workers
-  const shiftWorkers = [
-    { name: 'Ankit Gupta', image: '/path/to/john-image.jpg' },
-    { name: 'Steven Hao', image: '/path/to/jane-image.jpg' },
-    { name: 'Ahadu Kebede', image: '/path/to/' }
-  ]
+  const [shiftWorkers, setShiftWorkers] = useState([]);
+
+  // Load selected staff from localStorage when the component mounts
+  useEffect(() => {
+    const storedStaff = localStorage.getItem("selectedStaff");
+    if (storedStaff) {
+      setShiftWorkers(JSON.parse(storedStaff));
+    } else {
+      setShiftWorkers([]); // Ensure no old data remains
+    }
+  }, []);
 
   return (
     <Box
@@ -45,10 +39,10 @@ const TopBar = () => {
         </Box>
       </Box>
 
+      {/* Right Section - Display Selected Staff */}
       <ActiveStaffDisplay shiftWorkers={shiftWorkers} />
-      {/* Right Section */}
     </Box>
-  )
-}
+  );
+};
 
-export default TopBar
+export default TopBar;

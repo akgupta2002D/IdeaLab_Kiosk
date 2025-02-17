@@ -1,28 +1,45 @@
-"use client";
-import React, { useState } from "react";
+'use client';
+import React, { useState, useEffect } from "react";
 import StaffDashboard from "../staff_display_components/StaffDashboard";
 import styles from "../staff_display_components/StaffPage.module.css";
 
-// Generate 23 staff members
 const staffList = Array.from({ length: 23 }, (_, i) => ({
   id: i + 1,
   name: `Staff Member ${i + 1}`,
-  picture: `./staff/luffy.png`, // Replace with actual image path
-  classYear: `${2023 + (i % 3)}`, // Assigns 2023, 2024, or 2025
+  picture: `./staff/luffy.png`,
+  classYear: `${2023 + (i % 3)}`, 
 }));
 
 const StaffPage = () => {
-  const [selectedStaff, setSelectedStaff] = useState(new Set()); // Store staff IDs instead of objects
+  const [selectedStaff, setSelectedStaff] = useState([]);
+
+  // Load selected staff from localStorage when the component mounts
+  useEffect(() => {
+    const storedStaff = localStorage.getItem("selectedStaff");
+    if (storedStaff) {
+      setSelectedStaff(JSON.parse(storedStaff));
+    }
+  }, []);
 
   const handleStaffClick = (staff) => {
     setSelectedStaff((prevSelected) => {
-      const updatedSet = new Set(prevSelected);
-      if (updatedSet.has(staff.id)) {
-        updatedSet.delete(staff.id); // Remove if already selected
+      let updatedList = [...prevSelected];
+      const existingIndex = updatedList.findIndex((s) => s.id === staff.id);
+
+      if (existingIndex !== -1) {
+        updatedList.splice(existingIndex, 1); // Remove staff if already selected
       } else {
-        updatedSet.add(staff.id); // Add if not selected
+        updatedList.push(staff); // Add staff if not selected
       }
-      return updatedSet; // Ensure reactivity
+
+      // If no staff is selected, remove from localStorage
+      if (updatedList.length === 0) {
+        localStorage.removeItem("selectedStaff");
+      } else {
+        localStorage.setItem("selectedStaff", JSON.stringify(updatedList));
+      }
+
+      return updatedList;
     });
   };
 
@@ -31,26 +48,12 @@ const StaffPage = () => {
       <a href="/" className={styles.backButton}>
         ← Go Back
       </a>
+
       <StaffDashboard
         staffList={staffList}
         onStaffClick={handleStaffClick}
-        selectedStaff={selectedStaff}
+        selectedStaff={new Set(selectedStaff.map((s) => s.id))}
       />
-
-      {selectedStaff.size > 0 && (
-        <div className="modal">
-          <h2>Selected Staff Members:</h2>
-          <ul>
-            {staffList
-              .filter((staff) => selectedStaff.has(staff.id)) // Retrieve full objects using their IDs
-              .map((staff) => (
-                <li key={staff.id}>
-                  {staff.name} (Class Year: {staff.classYear})
-                </li>
-              ))}
-          </ul>
-        </div>
-      )}
     </div>
   );
 };
