@@ -1,1 +1,10 @@
 @import 'modern-normalize/modern-normalize.css';
+
+:root {
+    --primary-color: #2F975F;  /* Green */
+    --secondary-color: #575F56;  /* Dark Gray */
+    --background-color: #FFFFFF;  /* White */
+    --text-primary: #000000;  /* Black */
+    --text-secondary: #575F56;  /* Dark Gray */
+    --warning-color: #FFD700;  /* Dark Yellow (Gold) */
+  }
