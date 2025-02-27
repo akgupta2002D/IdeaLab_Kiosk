@@ -1,83 +1,26 @@
-/**
- * KioskButtons.js
- *
- * Author: Ankit Gupta
- * Company: Kioskx
- *
- * Description:
- * This component displays three large, interactive buttons for a kiosk system in a horizontal layout.
- * The buttons are labeled "Find Something", "AI CHAT BOT", and "GUIDES".
- */
+"use client";
 
-'use client'
-
-import { Box, Button } from '@mui/material'
+import styles from "./styles/KioskButtons.module.css";
 
 const KioskButtons = () => {
   return (
-    <Box
-      display='flex'
-      flexDirection='row' // Arrange buttons horizontally
-      justifyContent='space-around'
-      alignItems='center'
-      width='100%' // Full width to distribute buttons evenly
-      height='12vh' // Occupy 20% of the viewport height
-      p={2}
-      bgcolor='background.default'
-    >
+    <div className={styles.kioskButtons}>
       {/* Find Something Button */}
-      <Button
-        variant='contained'
-        color='primary'
-        sx={{
-          width: '20vw', // Each button takes up around 20% of the viewport width
-          height: '80px',
-          fontSize: '1.2rem',
-          boxShadow: 3,
-          '&:hover': {
-            boxShadow: 6
-          }
-        }}
-      >
+      <button className={`${styles.kioskButton} ${styles.primary}`}>
         Find Something
-      </Button>
+      </button>
 
       {/* AI Chat Bot Button */}
-      <Button
-        variant='contained'
-        color='warning'
-        sx={{
-          width: '20vw', // Consistent size for each button
-          height: '20vw',
-          fontSize: '1.2rem',
-          boxShadow: 3,
-          '&:hover': {
-            boxShadow: 6
-          },
-          borderRadius: '50%'
-        }}
-      >
+      <button className={`${styles.kioskButton} ${styles.warning} ${styles.ai}`}>
         Ask Our AI
-      </Button>
+      </button>
 
       {/* Guides Button */}
-      <Button
-        variant='contained'
-        color='primary'
-        sx={{
-          width: '20vw',
-          height: '80px',
-          fontSize: '1.2rem',
-          boxShadow: 3,
-          '&:hover': {
-            boxShadow: 6
-          }
-        }}
-      >
+      <button className={`${styles.kioskButton} ${styles.primary}`}>
         GUIDES
-      </Button>
-    </Box>
-  )
-}
+      </button>
+    </div>
+  );
+};
 
-export default KioskButtons
+export default KioskButtons;
