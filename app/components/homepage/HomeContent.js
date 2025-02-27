@@ -6,7 +6,7 @@ import TopBar from './TopBar';
 import PosterSlider from './PosterSlider';
 import KioskButtons from './KioskButtons';
 import IdeaLabSchedule from './IdeaLabSchedule';
-import styles from './styles/home.module.css'; // Import the CSS module
+import styles from './styles/HomeContent.module.css'; // Import the CSS module
 
 export default function HomeContent() {
   const showIdeaLabHours = useIdeaLabToggle();
