@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect } from "react";
-import StaffDashboard from "../staff_display_components/StaffDashboard";
-import styles from "../staff_display_components/StaffPage.module.css";
+import StaffDashboard from "../../components/staff_display/StaffDashboard";
+import styles from "../../components/staff_display/StaffPage.module.css";
 
 const staffList = Array.from({ length: 23 }, (_, i) => ({
   id: i + 1,

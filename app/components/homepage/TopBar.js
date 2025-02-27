@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Box, Typography } from '@mui/material';
-import ActiveStaffDisplay from '../staff_display_components/ActiveStaffDisplay';
+import ActiveStaffDisplay from '../staff_display/ActiveStaffDisplay';
 
 const TopBar = () => {
   const [shiftWorkers, setShiftWorkers] = useState([]);

@@ -1,11 +1,11 @@
 "use client"
 // Home.js
 import React, { useState, useEffect } from 'react';
-import TopBar from './homepage_components/TopBar';
-import PosterSlider from './homepage_components/PosterSlider';
-import KioskButtons from './homepage_components/KioskButtons';
-import IdeaLabSchedule from './homepage_components/IdeaLabSchedule';
-import styles from './Home.module.css'; // Import the CSS module
+import TopBar from './components/homepage/TopBar';
+import PosterSlider from './components/homepage/PosterSlider';
+import KioskButtons from './components/homepage/KioskButtons';
+import IdeaLabSchedule from './components/homepage/IdeaLabSchedule';
+import styles from './home.module.css'; // Import the CSS module
 
 export default function Home() {
   const [showIdeaLabHours, setShowIdeaLabHours] = useState(false);
