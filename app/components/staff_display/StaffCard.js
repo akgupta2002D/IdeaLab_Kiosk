@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import styles from "./StaffCard.module.css";
+import styles from "./styles/StaffCard.module.css";
 
 const StaffCard = ({ staff, onClick, isSelected }) => {
   const { id, name, picture, classYear } = staff;

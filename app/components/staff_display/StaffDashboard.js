@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import StaffCard from "./StaffCard";
-import styles from "./StaffDashboard.module.css";
+import styles from "./styles/StaffDashboard.module.css";
 
 const StaffDashboard = ({ staffList, onStaffClick, selectedStaff }) => {
   return (

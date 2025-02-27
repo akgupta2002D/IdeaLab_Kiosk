@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect } from "react";
 import StaffDashboard from "../../components/staff_display/StaffDashboard";
-import styles from "../../components/staff_display/StaffPage.module.css";
+import BackButton from "@/app/components/general/BackButton";
 
 const staffList = Array.from({ length: 23 }, (_, i) => ({
   id: i + 1,
@@ -45,9 +45,7 @@ const StaffPage = () => {
 
   return (
     <div>
-      <a href="/" className={styles.backButton}>
-        ← Go Back
-      </a>
+      <BackButton />
 
       <StaffDashboard
         staffList={staffList}
