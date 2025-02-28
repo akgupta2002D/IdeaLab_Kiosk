@@ -6,7 +6,7 @@ export function useIdeaLabToggle() {
   useEffect(() => {
     const interval = setInterval(() => {
       setShowIdeaLabHours(prev => !prev);
-    }, 30000);
+    }, 50000);
     return () => clearInterval(interval);
   }, []);
 
