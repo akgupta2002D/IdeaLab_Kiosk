@@ -5,14 +5,14 @@ const KioskButtons = () => {
   return (
     <div className={styles.kioskButtons}>
       {/* Find Something Button */}
-      <Link href="/find-something">
+      <Link href="/find_tool">
         <button className={`${styles.kioskButton} ${styles.primary}`}>
           Find Something
         </button>
       </Link>
 
       {/* AI Chat Bot Button */}
-      <Link href="/ai-chat">
+      <Link href="/ideabot">
         <button className={`${styles.kioskButton} ${styles.warning} ${styles.ai}`}>
           Ask Our AI
         </button>
