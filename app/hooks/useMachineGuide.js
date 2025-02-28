@@ -26,10 +26,15 @@ export function useMachineGuide() {
   const [selectedMachine, setSelectedMachine] = useState(machines[0]);
 
   const selectMachine = (machineId) => {
+    // Find the machine with the given ID
     const machine = machines.find((m) => m.id === machineId);
-    if (machine) {
-        setSelectedMachine(machine)
-    };
+    // If no machine is found, do nothing (or handle the error gracefully)
+    if (!machine) {
+      console.warn(`Machine with ID "${machineId}" not found.`);
+      return;
+    }
+    // Update the selected machine
+    setSelectedMachine(machine);
   };
 
   return { machines, selectedMachine, selectMachine };
