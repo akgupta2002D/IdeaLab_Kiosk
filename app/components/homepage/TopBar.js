@@ -3,7 +3,7 @@
 import ActiveStaffDisplay from "../staff_display/ActiveStaffDisplay";
 import TitleBanner from "./TitleBanner";
 import { useShiftWorkers } from "../../hooks/useShiftWorkers";
-import styles from "./styles/TopBar.module.css";
+import styles from "./styles/Topbar.module.css";
 
 const TopBar = () => {
   const shiftWorkers = useShiftWorkers();

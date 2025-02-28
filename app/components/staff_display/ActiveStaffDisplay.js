@@ -1,50 +1,29 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { Box, Typography, Avatar } from '@mui/material';
+import styles from "./styles/ActiveStaffDisplay.module.css";
 
 const ActiveStaffDisplay = ({ shiftWorkers }) => {
   return (
-    <Box
-      display={'flex'}
-      flexDirection={'column'}
-      alignItems={'center'}
-      bgcolor='warning.main'
-      sx={{ borderRadius: '20px', p: 1 }}
-    >
-      <Typography variant='h5' color='textPrimary' gutterBottom>
-        Current Shift
-      </Typography>
-      <Box display='flex' justifyContent='center'>
+    <div className={styles.activeStaffContainer}>
+      <h2 className={styles.staffTitle}>CURRENT SHIFT</h2>
+      <div className={styles.staffList}>
         {shiftWorkers.length > 0 ? (
           shiftWorkers.map((worker) => (
-            <Box
-              key={worker.id} // Ensure correct key usage
-              mx={2}
-              display={'flex'}
-              flexDirection={'column'}
-              alignItems={'center'}
-            >
-              <Avatar
+            <div key={worker.id} className={styles.staffMember}>
+              <img
                 alt={worker.name}
-                src={worker.picture} // Ensure the correct attribute is used
-                sx={{ width: 98, height: 98 }}
+                src={worker.picture}
+                className={styles.staffAvatar}
               />
-              <Typography variant='body1' color='textPrimary' mt={1}>
-                {worker.name}
-              </Typography>
-              <Typography variant='body2' color='textSecondary'>
-                Class of {worker.classYear}
-              </Typography>
-            </Box>
+              <p className={styles.staffName}>{worker.name}</p>
+              
+            </div>
           ))
         ) : (
-          <Typography variant="body2" color="textSecondary">
-            No staff currently selected.
-          </Typography>
+          <p className={styles.staffClass}>No staff currently selected.</p>
         )}
-      </Box>
-    </Box>
+      </div>
+    </div>
   );
 };
 

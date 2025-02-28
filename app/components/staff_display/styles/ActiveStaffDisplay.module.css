@@ -1,0 +1,50 @@
+.activeStaffContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--warning-color);
+    border-radius: 1.25rem; /* 20px to rem */
+    padding: 0.3rem; /* 8px to rem */
+    height: 100%;
+}
+  
+.staffTitle {
+    font-size: 1.2rem;
+    /* font-weight: bold; */
+    color: var(--text-primary);
+    margin: 0.5rem;
+}
+  
+.staffList {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem; /* 16px to rem */
+    flex-wrap: wrap;
+}
+  
+.staffMember {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+  
+.staffAvatar {
+    width: 5.5rem; /* 100px to rem */
+    height: 5.5rem; /* 100px to rem */
+    border-radius: 50%;
+    object-fit: cover;
+}
+  
+.staffName {
+    font-size: 1rem;
+    /* font-weight: bold; */
+    color: var(--text-secondary);
+    margin: 0.5rem;
+}
+  
+.staffClass {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0.5rem;
+}
