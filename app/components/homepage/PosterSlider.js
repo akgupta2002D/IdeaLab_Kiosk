@@ -1,52 +1,46 @@
 "use client";
-
+import React, { useState, useEffect } from "react";
+import Poster from "./Poster";
+import EventInfo from "./EventInfo";
 import { usePosterSlider } from "../../hooks/usePosterSlider";
 import styles from "./styles/PosterSlider.module.css";
 
 const PosterSlider = ({ events }) => {
-  const defaultImage = "/default.webp"; // Default fallback image
-  const currentEvent = usePosterSlider(events); // Use the custom hook
+  // Use your custom hook to get the current event
+  const currentEvent = usePosterSlider(events);
+
+  const [showOverlay, setShowOverlay] = useState(false);
+
+  // Whenever 'currentEvent' changes, we:
+  // 1. Immediately show the new poster (rendered below).
+  // 2. Wait 2s, then show the overlay (sliding up).
+  useEffect(() => {
+    setShowOverlay(false);
+
+    const timer = setTimeout(() => {
+      setShowOverlay(true);
+    }, 500); // 2-second delay before overlay appears
+
+    return () => clearTimeout(timer);
+  }, [currentEvent]);
+
+  if (!currentEvent) return null;
 
   return (
     <div className={styles.posterSlider}>
-      {/* Poster Image */}
-      <div
-        className={styles.posterImage}
-        style={{ backgroundImage: `url(${currentEvent.image || defaultImage})` }}
+      <Poster
+        imageUrl={currentEvent.image || "/default.webp"}
+        altText={currentEvent.name || "Event Poster"}
       />
-
-      {/* Event Details */}
-      {currentEvent.name && (
-        <div className={styles.eventDetails}>
-          <h2 className={styles.eventTitle}>{currentEvent.name}</h2>
-
-          {/* Event Info Container */}
-          <div className={styles.eventContainer}>
-            <div className={styles.eventInfo}>
-              {/* Event Description */}
-              <div className={styles.eventSection}>
-                <h6 className={styles.eventHeading}>📋 Event Info</h6>
-                <p className={styles.eventText}>
-                  {currentEvent.description || "No description! But it will be fun!"}
-                </p>
-              </div>
-
-              {/* Event Date */}
-              <div className={styles.eventSection} style={{ marginTop: "auto" }}>
-                <h6 className={styles.eventHeading}>📅 Date</h6>
-                <p className={styles.eventText}>{currentEvent.date}</p>
-              </div>
-            </div>
-
-            {/* Event Location */}
-            <div className={styles.eventLocation}>
-              <img src="/CIS_Location.jpeg" alt="Event Location" />
-              <p className={styles.eventLocationText}>
-                Location: {currentEvent.location}
-              </p>
-            </div>
-          </div>
-        </div>
+      {showOverlay && (
+        <EventInfo
+          // Use a unique key so the animation re-triggers each time
+          key={currentEvent.id || currentEvent.name}
+          name={currentEvent.name}
+          description={currentEvent.description}
+          date={currentEvent.date}
+          location={currentEvent.location}
+        />
       )}
     </div>
   );

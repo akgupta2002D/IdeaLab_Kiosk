@@ -42,7 +42,8 @@ export default function HomeContent() {
           </a>
         </div>
         <div className={styles.mainContent}>
-          {showIdeaLabHours ? <IdeaLabSchedule /> : <PosterSlider events={events} />}
+          {/* {showIdeaLabHours ? <IdeaLabSchedule /> : <PosterSlider events={events} />} */}
+          <PosterSlider events={events} />
         </div>
       </div>
       <div className={styles.kioskButtons}>
