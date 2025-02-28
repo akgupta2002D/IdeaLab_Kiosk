@@ -35,10 +35,10 @@ export default function HomeContent() {
       <div className={styles.contentContainer}>
         <div className={styles.buttonGroup}>
           <a href="/staff" className={`${styles.button} ${styles.checkIn}`}>
-            Check In
+            CHECK IN
           </a>
           <a href="/staff" className={`${styles.button} ${styles.checkOut}`}>
-            Check Out
+            CHECK OUT
           </a>
         </div>
         <div className={styles.mainContent}>
