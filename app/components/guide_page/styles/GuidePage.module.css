@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    height: 80vh;
+    overflow:scroll ;
+  }
+  
+  .title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .content {
+    display: flex;
+    flex: 1;
+    gap: 20px;
+  }
+  
