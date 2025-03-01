@@ -1,6 +1,7 @@
 // knexfile.js
 // replace with .env variables
 require('dotenv').config();
+const { minify } = require('next/dist/build/swc');
 const testUtils = require('react-dom/test-utils');
 module.exports = {
     client: 'mysql2',
@@ -9,5 +10,11 @@ module.exports = {
         user: process.env.DB_USER,
         password: process.env.DB_PASSWORD,
         database: process.env.DB_NAME,
+    },
+    migrations: {
+        directory: './databse/migrations',
+    },
+    seeds: {
+        directory: './databse/seeds',
     },
 };
