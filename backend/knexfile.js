@@ -12,9 +12,9 @@ module.exports = {
         database: process.env.DB_NAME,
     },
     migrations: {
-        directory: './databse/migrations',
+        directory: './database/migrations',
     },
     seeds: {
-        directory: './databse/seeds',
+        directory: './database/seeds',
     },
 };
