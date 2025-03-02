@@ -31,7 +31,31 @@ const getStaff = async () => {
     }
 }
 
+const updateStaff = async (id, name, bio, image) => {
+    try {
+        const staff = await knex('staff').where({ id }).update({
+            name,
+            bio,
+            image
+        });
+        return staff;
+    } catch (error) {
+        throw error;
+    }
+}
+
+const deleteStaff = async (id) => {
+    try {
+        const staff = await knex('staff').where({ id }).del();
+        return staff;
+    } catch (error) {
+        throw error;
+    }
+}
+
 module.exports = {
     addStaff,
     getStaff,
+    updateStaff,
+    deleteStaff
 };
