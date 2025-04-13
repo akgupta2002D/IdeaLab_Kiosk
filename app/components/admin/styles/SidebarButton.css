@@ -1,0 +1,15 @@
+.sidebar-button {
+    margin-bottom: 1rem;
+  }
+  .sidebar-button a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .sidebar-button a:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+  }

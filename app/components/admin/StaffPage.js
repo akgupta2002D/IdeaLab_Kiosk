@@ -1,0 +1,2 @@
+import GeneralPageLayout from './GeneralPageLayout';
+
