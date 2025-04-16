@@ -1,6 +1,6 @@
 // admin/dashboard/page.js
 import GeneralPageLayout from '../../../components/admin/GeneralPageLayout';
-// import "../../../components/admin/styles/AdminPage.css";
+import StatsForIdeaLab from '../../../components/admin/StatsForIdeaLab';
 
 export default function DashboardPage() {
 
@@ -10,7 +10,17 @@ export default function DashboardPage() {
           description: 'This is an overview page for the usage and changes of Idealab Kiosk.'
         },
     ]
+
+    const Stats = {
+      staffCount: 15,
+      printerCount: 8,
+      projectsCompleted: 120,
+      activeUsers: 45,
+    };
+
   return (
-    <GeneralPageLayout pageContent={pageContent}/>
+    <GeneralPageLayout pageContent={pageContent}>
+      <StatsForIdeaLab stats={Stats} />
+    </GeneralPageLayout>
   );
 }

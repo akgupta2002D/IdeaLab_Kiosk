@@ -5,6 +5,7 @@ import "./styles/GeneralPageLayout.css";
 export default function GeneralPageLayout({pageContent, children}) {
 
   const {name, description} = pageContent[0]
+
   return (
     <div className="admin-dashboard">
       <Sidebar />
@@ -13,6 +14,7 @@ export default function GeneralPageLayout({pageContent, children}) {
         <p>{description}</p>
         {children}
       </main>
+      
     </div>
   );
 }
