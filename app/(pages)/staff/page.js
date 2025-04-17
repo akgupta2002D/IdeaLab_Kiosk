@@ -8,6 +8,29 @@ import BackButton from "@/app/components/general/BackButton";
 const StaffPage = () => {
 
   const [staffList, setStaffList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setIsLoading(true); // Set loading to true before fetching
+    const fetchStaff = async () => {
+      try {
+        const res = await fetch('/api/staff');
+        if (!res.ok) throw new Error('Failed to fetch staff data');
+        const data = await res.json();
+        const formattedData = data.map((staff) => ({
+          ...staff,
+          picture: './staff/luffy.png', // Use luffy.png for all staff
+        }));
+        setStaffList(formattedData);
+      } catch (err) {
+        console.error('Error fetching staff:', err);
+      } finally {
+        setIsLoading(false); // Set loading to false after fetching
+      }
+    };
+
+    fetchStaff();
+  }, []);
 
   useEffect(() => {
     const fetchStaff = async () => {
@@ -64,11 +87,17 @@ const StaffPage = () => {
     <div>
       <BackButton />
 
-      <StaffDashboard
-        staffList={staffList}
-        onStaffClick={handleStaffClick}
-        selectedStaff={new Set(selectedStaff.map((s) => s.id))}
-      />
+      {isLoading ? (
+        <p style={{ fontSize: "18px", fontWeight: "bold", textAlign: "center", marginTop: "20px" }}>
+          Loading...
+        </p>
+      ) : (
+        <StaffDashboard
+          staffList={staffList}
+          onStaffClick={handleStaffClick}
+          selectedStaff={new Set(selectedStaff.map((s) => s.id))}
+        />
+      )}
     </div>
   );
 };
