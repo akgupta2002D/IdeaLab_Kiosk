@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./styles/StaffCard.module.css";
 
 const StaffCard = ({ staff, onClick, isSelected }) => {
-  const { id, name, picture, classYear } = staff;
+  const { id, first_name, last_name, picture, class_year, speciality } = staff;
   return (
     <div
       key={id}
@@ -12,8 +12,9 @@ const StaffCard = ({ staff, onClick, isSelected }) => {
     >
       <img src={picture} alt="Staff Avatar" className={styles.image} />
       <div className={styles.details}>
-        <h3 className={styles.name}>{name}</h3>
-        <p className={styles.classYear}>Class of {classYear}</p>
+        <h3 className={styles.name}>{first_name+" "+last_name}</h3>
+        <p className={styles.classYear}>Class of {class_year}</p>
+        <p className={styles.classYear}>Speciality: {speciality}</p>
       </div>
     </div>
   );

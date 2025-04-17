@@ -3,14 +3,31 @@ import React, { useState, useEffect } from "react";
 import StaffDashboard from "../../components/staff_display/StaffDashboard";
 import BackButton from "@/app/components/general/BackButton";
 
-const staffList = Array.from({ length: 23 }, (_, i) => ({
-  id: i + 1,
-  name: `Staff Member ${i + 1}`,
-  picture: `./staff/luffy.png`,
-  classYear: `${2023 + (i % 3)}`, 
-}));
+
 
 const StaffPage = () => {
+
+  const [staffList, setStaffList] = useState([]);
+
+  useEffect(() => {
+    const fetchStaff = async () => {
+      try {
+        const res = await fetch('/api/staff');
+        if (!res.ok) throw new Error('Failed to fetch staff data');
+        const data = await res.json();
+        const formattedData = data.map((staff) => ({
+          ...staff,
+          picture: './staff/luffy.png', // Use luffy.png for all staff
+        }));
+        setStaffList(formattedData);
+      } catch (err) {
+        console.error('Error fetching staff:', err);
+      }
+    };
+
+    fetchStaff();
+  }, []);
+
   const [selectedStaff, setSelectedStaff] = useState([]);
 
   // Load selected staff from localStorage when the component mounts

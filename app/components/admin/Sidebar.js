@@ -3,7 +3,7 @@ import './styles/Sidebar.css';
 
 const Sidebar = () => {
   const links = [
-    { label: 'Home', href: '/' },
+    { label: 'Home', href: '/admin/dashboard' },
     { label: 'Staff', href: '/admin/staff_management' },
     { label: 'About', href: '/about' },
     { label: 'Services', href: '/services' },
