@@ -1,0 +1,121 @@
+/* components/EventCard.css */
+
+.event-card {
+    width: 100%;
+    max-width: 300px;
+    margin: 10px;
+    background: #fff;
+    border-radius: 10px;
+    /* overflow: hidden; */
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+.event-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 20px rgba(0, 255, 0, 0.5); /* Add green glow effect */
+    border: 2px solid rgba(0, 255, 0, 0.8); /* Green aura on border */
+}
+  
+  .event-image {
+    width: 100%;
+    height: 100%;
+    max-height: 400px;
+    object-fit: cover;
+  }
+  
+  .event-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .event-popup {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .event-popup-image {
+    width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .event-popup-details {
+    margin-top: 15px;
+    text-align: left;
+  }
+  
+  /* app/events/events.css */
+
+.events-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4rem;
+    padding: 40px;
+  }
+
+/* events.css */
+
+.events-page {
+    padding: 30px;
+  }
+  
+  .events-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .events-controls input[type="text"],
+  .events-controls input[type="date"],
+  .events-controls select {
+    padding: 10px 15px;
+    border: 2px solid #aad576;
+    border-radius: 8px;
+    background-color: #f6fff2;
+    color: #333;
+    font-size: 1rem;
+    min-width: 200px;
+  }
+  
+  .events-controls button {
+    background-color: #65c54f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .events-controls button:hover {
+    background-color: #4fae39;
+  }
+  
+  .events-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  

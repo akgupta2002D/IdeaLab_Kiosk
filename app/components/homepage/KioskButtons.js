@@ -5,9 +5,9 @@ const KioskButtons = () => {
   return (
     <div className={styles.kioskButtons}>
       {/* Find Something Button */}
-      <Link href="/find_tool">
+      <Link href="/events">
         <button className={`${styles.kioskButton} ${styles.primary}`}>
-          Find Something
+          Events
         </button>
       </Link>
 
