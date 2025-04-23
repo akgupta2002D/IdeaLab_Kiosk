@@ -1,4 +1,17 @@
-// admin/dashboard/page.js
+/**
+ * @file        dashboard/page.js
+ * @description This file defines the DashboardPage component, which serves as the admin dashboard page. 
+ *              It displays general page layout and statistics for the IdeaLab.
+ *
+ * @dependencies
+ * - GeneralPageLayout: A layout component for wrapping the page content.
+ * - StatsForIdeaLab: A component for displaying statistics related to the IdeaLab.
+ *
+ * @notes
+ * - The `pageContent` array is currently a placeholder and can be extended with meaningful content.
+ * - The `Stats` object contains hardcoded statistics and may need to be dynamically fetched in the future.
+ */
+
 import GeneralPageLayout from '../../../components/admin/GeneralPageLayout';
 import StatsForIdeaLab from '../../../components/admin/StatsForIdeaLab';
 

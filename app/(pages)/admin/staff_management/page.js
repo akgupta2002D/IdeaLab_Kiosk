@@ -1,8 +1,26 @@
+/**
+ * @file        StaffPage.js
+ * @description This file defines the StaffPage component, which provides an interface for administrators to manage staff members, 
+ * including viewing, adding, editing, and removing staff.
+ *
+ * @dependencies
+ * - React (useEffect, useState)
+ * - GeneralPageLayout (custom layout component)
+ * - Button (custom button component)
+ * - CSS styles (TableStyles.css)
+ *
+ * @notes
+ * - Fetches staff data from the `/api/staff` endpoint on component mount.
+ * - Displays loading, error, or staff data based on the fetch state.
+ * - Includes a placeholder button for adding staff functionality.
+ */
+
 'use client'
 import { useEffect, useState } from 'react'
 import GeneralPageLayout from '../../../components/admin/GeneralPageLayout'
 import '../../../components/admin/styles/TableStyles.css'
-import Button from '../../../components/general/Button'
+// import Button from '../../../components/general/Button' // Removed as it is unused
+import StaffAddForm from '../../../components/admin/StaffAddForm'
 
 export default function StaffPage() {
   const [staff, setStaff] = useState([])
@@ -16,29 +34,48 @@ export default function StaffPage() {
         'This page allows administrators to manage staff members, including adding, editing, and removing staff.'
     }
   ]
+  const handleAddStaff = async (newStaff) => {
+    try {
+      const res = await fetch('/api/staff', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newStaff),
+      });
+  
+      if (!res.ok) {
+        throw new Error('Failed to add staff member');
+      }
+  
+      await fetchStaff(); // safer: refresh full list
+      setError(null);
+    } catch (err) {
+      setError(err.message);
+    }
+  };
 
-  useEffect(() => {
     const fetchStaff = async () => {
       try {
-        const res = await fetch('/api/staff')
-        if (!res.ok) throw new Error('Failed to fetch')
-        const data = await res.json()
-        console.log('Data:', data)
-        setStaff(data)
+        const res = await fetch('/api/staff');
+        const data = await res.json();
+        setStaff(data);
       } catch (err) {
-        setError(err.message)
+        setError(err.message);
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
-    }
-
-    fetchStaff()
-  }, [])
+    };
+    
+    useEffect(() => {
+      fetchStaff();
+    }, []);
 
   return (
     <>
       <GeneralPageLayout pageContent={pageContent}>
-        <Button name={'Add Staff'} onClick={() => console.log('Add Staff')} />
+        {/* <Button name={'Add Staff'} onClick={() => console.log('Add Staff')} /> */}
+        < StaffAddForm onSubmit={handleAddStaff}/>
         <div className="staff-management-container">
           {loading && <p className="loading-text">Loading staff...</p>}
           {error && <p className="error-text">Error: {error}</p>}
@@ -55,13 +92,13 @@ export default function StaffPage() {
                 </tr>
               </thead>
               <tbody>
-                {staff.map((member) => (
-                  <tr key={member.id} className="staff-table-row">
-                    <td className="staff-table-cell">{member.id}</td>
-                    <td className="staff-table-cell">{member.first_name}</td>
-                    <td className="staff-table-cell">{member.last_name}</td>
-                    <td className="staff-table-cell">{member.class_year}</td>
-                    <td className="staff-table-cell">{member.speciality}</td>
+                {staff.map((member, index) => (
+                  <tr key={index} className="staff-table-row">
+                    <td className="staff-table-cell">{index + 1}</td>
+                    <td className="staff-table-cell">{member.first_name || 'N/A'}</td>
+                    <td className="staff-table-cell">{member.last_name || 'N/A'}</td>
+                    <td className="staff-table-cell">{member.class_year || 'N/A'}</td>
+                    <td className="staff-table-cell">{member.speciality || 'N/A'}</td>
                   </tr>
                 ))}
               </tbody>
