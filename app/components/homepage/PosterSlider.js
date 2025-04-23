@@ -29,7 +29,7 @@ const PosterSlider = ({ events }) => {
   return (
     <div className={styles.posterSlider}>
       <Poster
-        imageUrl={currentEvent.image || "/default.webp"}
+        imageUrl={`events/${currentEvent.image_url}` || "/default.webp"}
         altText={currentEvent.name || "Event Poster"}
       />
       {showOverlay && (

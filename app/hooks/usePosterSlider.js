@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export function usePosterSlider(events, intervalTime = 15000) {
+export function usePosterSlider(events, intervalTime = 5000) {
   const [currentEventIndex, setCurrentEventIndex] = useState(0); // State to track the current event index
 
   useEffect(() => {

@@ -6,6 +6,7 @@ const GuideContent = ({ machine }) => {
     <section className={styles.guideContent}>
       <h2>{machine.name} Guide</h2>
       <p>{machine.guide}</p>
+      <img className={styles.image} src={machine.image} alt="3d printer guide" />
     </section>
   );
 };

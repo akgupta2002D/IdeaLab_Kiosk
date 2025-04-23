@@ -5,21 +5,17 @@ import { useState } from 'react';
 const machines = [
   {
     id: 'Prusa Mini',
-    name: 'Machine One',
+    name: 'Prusa Mini 3D Printer',
     avatar: '/machine.png',
-    guide: 'This is the guide for Machine One. Follow these steps...',
-  },
-  {
-    id: 'Prusa M4',
-    name: 'Machine Two',
-    avatar: '/machine.png',
-    guide: 'This is the guide for Machine Two. Follow these instructions...',
+    guide: 'The Prusa Mini is a compact 3D printer. Ensure the filament is loaded, the bed is leveled, and the model is sliced properly before starting the print.',
+    image: 'guides/3d_printer.png',
   },
   {
     id: 'Sewing Machine',
-    name: 'Machine Three',
+    name: 'Sewing Machine',
     avatar: '/machine.png',
-    guide: 'This is the guide for Machine Three. Here are the details...',
+    guide: 'The Sewing Machine is ideal for fabric stitching. Thread the needle, adjust the tension, and select the appropriate stitch type before starting.',
+    image: 'guides/sewing_machine.jpg',
   },
 ];
 

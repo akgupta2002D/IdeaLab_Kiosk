@@ -14,7 +14,7 @@ const EventInfo = ({ name, description, date, location }) => {
 
       <div className={styles.eventMeta}>
         <div>
-          <h6>Date: {date}</h6>
+          <h3>Date: {date}</h3>
           
         </div>
         <div>
