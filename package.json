@@ -11,6 +11,8 @@
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
+    "@langchain/community": "^0.3.41",
+    "@langchain/ollama": "^0.2.0",
     "@mui/material": "^6.1.0",
     "@mui/x-data-grid": "^7.17.0",
     "@supabase/auth-helpers-nextjs": "^0.10.0",
@@ -19,12 +21,14 @@
     "dotenv": "^16.5.0",
     "firebase": "^10.14.1",
     "knex": "^3.1.0",
+    "langchain": "^0.3.23",
     "modern-normalize": "^3.0.1",
     "next": "^15.3.0",
     "oracledb": "^6.8.0",
     "pg-query-stream": "^4.8.1",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "weaviate-client": "^3.5.2"
   },
   "devDependencies": {
     "eslint": "^8",

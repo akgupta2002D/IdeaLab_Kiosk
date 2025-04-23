@@ -1,0 +1,37 @@
+
+Welcome to Skidmore College's IdeaLab – a dynamic hub where creativity, technology, and innovation intersect. 
+The IdeaLab is managed by Darren Mendez, a passionate maker and educator who has overseen the lab's evolution since 2019. 
+Under his leadership, the lab now serves over 600 students per semester, offering access to a wide range of tools and guided workshops.
+
+📦 3D Printing:
+IdeaLab offers multiple 3D printers including Prusa i3 MK3S+, Ultimaker S3, and the resin-based Anycubic Photon Mono X. 
+Students can print using PLA, ABS, or PETG filament after slicing their models in Cura or PrusaSlicer. 
+On average, over 1,200 3D prints are completed every semester, contributing to academic projects, art installations, and student-run businesses.
+Before printing, users must pass the 3D Printing 101 Workshop and sign a machine usage agreement.
+
+🧵 Sewing Machines:
+Our textile section includes Janome HD3000 and Brother CS7000i sewing machines, sergers, and hand stitch kits.
+From patching jeans to constructing cosplay outfits, students can explore hands-on fabric design. 
+Each semester, 75+ students complete original textile projects, ranging from embroidery art to upcycled bags.
+Weekly beginner and intermediate sewing workshops are led by trained student staff and visiting artists.
+
+🎨 Vinyl Cutting & Heat Press:
+Students use Cricut Maker 3 and Silhouette Cameo 4 for making stickers, decals, and apparel transfers.
+Our heat press enables on-site creation of custom shirts and tote bags for clubs and campus events.
+In Fall 2024 alone, over 350 shirts were pressed for 22 student clubs.
+
+🔬 Laser Cutter:
+The Epilog Zing 40W laser cutter is available for engraving and cutting on materials like wood, acrylic, and leather.
+Students must complete the Laser Certification Module on the IdeaLab Moodle page.
+Eye protection and ventilation protocols are strictly enforced.
+
+📅 Hours & Access:
+Open Sunday 11:45am–7pm, Mon–Thu 9am–9pm, Fri 9am–6pm. Closed Saturdays.
+Access is free for all students, but machine use must be logged through the Kiosk Check-In system.
+
+📈 Fun Stats:
+- 87% of first-time visitors return for a second project.
+- IdeaLab staff logged 1,420 support hours in Spring 2024.
+- Most popular machine in 2023: 3D Printer (42% usage time)
+
+IdeaLab is more than a makerspace – it's a launchpad for ideas, a place where imagination meets tools, and students become creators.
