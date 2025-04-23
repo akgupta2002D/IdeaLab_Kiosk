@@ -4,19 +4,19 @@ import { useState } from 'react';
 // List of machines with their details
 const machines = [
   {
-    id: 'machine1',
+    id: 'Prusa Mini',
     name: 'Machine One',
     avatar: '/machine.png',
     guide: 'This is the guide for Machine One. Follow these steps...',
   },
   {
-    id: 'machine2',
+    id: 'Prusa M4',
     name: 'Machine Two',
     avatar: '/machine.png',
     guide: 'This is the guide for Machine Two. Follow these instructions...',
   },
   {
-    id: 'machine3',
+    id: 'Sewing Machine',
     name: 'Machine Three',
     avatar: '/machine.png',
     guide: 'This is the guide for Machine Three. Here are the details...',

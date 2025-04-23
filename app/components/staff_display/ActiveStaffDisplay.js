@@ -15,7 +15,7 @@ const ActiveStaffDisplay = ({ shiftWorkers }) => {
             <div key={worker.id} className={styles.staffMember}>
               <img
                 alt={worker.first_name}
-                src={worker.picture}
+                src={`profiles/${worker.profile_img}`}
                 className={styles.staffAvatar}
               />
               <p className={styles.staffName}>{worker.first_name + " " + worker.last_name}</p>

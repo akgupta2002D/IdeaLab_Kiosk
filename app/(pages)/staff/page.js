@@ -40,12 +40,7 @@ const StaffPage = () => {
         const res = await fetch('/api/staff'); // Fetch staff data from the API
         if (!res.ok) throw new Error('Failed to fetch staff data');
         const data = await res.json();
-        // Add a default picture to each staff member
-        const formattedData = data.map((staff) => ({
-          ...staff,
-          picture: './staff/luffy.png', // Use luffy.png for all staff
-        }));
-        setStaffList(formattedData); // Update the staff list state
+        setStaffList(data); // Update the staff list state
       } catch (err) {
         console.error('Error fetching staff:', err); // Log any errors
       } finally {

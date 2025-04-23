@@ -1,3 +1,20 @@
+/**
+ * @file        events/page.js
+ * @description This file defines the EventsPage component, which serves as the main interface for displaying and filtering events.
+ * It includes search and filter controls for event name, type, building, and date, and displays a grid of event cards.
+ *
+ * @dependencies
+ * - React (useState, useEffect)
+ * - EventCard (component for displaying individual event details)
+ * - BackButton (component for navigating back to the previous page)
+ * - CSS styles (EventCard.css)
+ *
+ * @notes
+ * - Fetches events data from the `/api/events` endpoint and manages loading and error states.
+ * - Provides filtering functionality based on event name, type, building, and date.
+ * - Displays a loading message while fetching data and an error message if the fetch fails.
+ * - The layout includes a back button, search and filter controls, and a grid of event cards.
+ */
 // app/events/page.jsx
 'use client';
 
